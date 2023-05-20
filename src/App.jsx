@@ -1,4 +1,5 @@
 import React from "react"
+import Question from "./components/Question.jsx"
 
 export default function App() {
     const [quiz, setQuiz] = React.useState(false)
@@ -11,9 +12,13 @@ export default function App() {
         <main>
             {
                 quiz ?
-                    <>
-                        Start game
-                    </>
+                    <div className="quiz-container">
+                        <Question />
+                        <Question />
+                        <Question />
+                        <Question />
+                        <Question />
+                    </div>
                 :
                     <>
                         <h1 className="title">Anime Quizzical</h1>

@@ -28,14 +28,44 @@ main {
 }
 
 .start-quiz {
-  margin-top: 32px;
+  margin-top: 24px;
   height: 50px;
   width: 200px;
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
   background-color: #4D5B9E;
   color: white;
   font-size: 1.2rem;
   font-family: 'Karla', sans-serif;
   cursor: pointer;
+}
+
+.choice {
+  border-radius: 6px;
+  border-color: #4D5B9E;
+  background-color: white;
+  color: #293264;
+  height: 30px;
+  width: 100px;
+  cursor: pointer;
+  border-width: thin;
+}
+
+.choices {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quiz-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.question-container {
+  min-width: 500px;
+  height: 100px;
 }
