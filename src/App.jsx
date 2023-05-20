@@ -1,23 +1,31 @@
 import React from "react"
-import Question from "./components/Question.jsx"
+import Quiz from "./components/Quiz.jsx"
+import { nanoid } from "nanoid"
 
 export default function App() {
     const [quiz, setQuiz] = React.useState(false)
+    const [quizData, setQuizData] = React.useState([])
+
+    React.useEffect(() => {
+        fetch("https://opentdb.com/api.php?amount=5&category=31&difficulty=easy&type=multiple")
+            .then(res => res.json())
+            .then(data => setQuizData(data.results))
+    }, [])
 
     function startQuiz() {
         setQuiz(true)
     }
+
+    const quizElements = quizData.map(data =>
+        <Quiz key={nanoid()} data={data} />
+    )
 
     return (
         <main>
             {
                 quiz ?
                     <div className="quiz-container">
-                        <Question />
-                        <Question />
-                        <Question />
-                        <Question />
-                        <Question />
+                        {quizElements}
                     </div>
                 :
                     <>
