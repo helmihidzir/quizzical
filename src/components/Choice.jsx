@@ -1,3 +1,5 @@
+import { decode } from 'html-entities';
+
 export default function Choice(props) {
     const styles = {
         backgroundColor: props.isChosen ? "#D6DBF5" : "white",
@@ -7,7 +9,7 @@ export default function Choice(props) {
 
     return (
         <button style={styles} className="choice">
-            {props.value}
+            {decode(props.value)}
         </button>
     )
 }

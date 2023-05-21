@@ -1,6 +1,7 @@
 import React from "react"
 import Choice from "./Choice.jsx"
 import { nanoid } from "nanoid"
+import { decode } from 'html-entities';
 
 export default function Quiz(props) {
     function shuffleArray(array) {
@@ -18,7 +19,7 @@ export default function Quiz(props) {
 
     return (
         <div className="question-container">
-            <p className="question">{props.data.question}</p>
+            <p className="question">{decode(props.data.question)}</p>
             <div className="choices">
                 {choiceElements}
             </div>
