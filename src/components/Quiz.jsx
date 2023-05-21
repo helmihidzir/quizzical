@@ -12,6 +12,7 @@ export default function Quiz(props) {
     let correct_answer = props.data.correct_answer
     incorrect_answers.push(correct_answer)
     const choices = shuffleArray(incorrect_answers)
+    console.log(correct_answer)
 
     const choiceElements = choices.map(choice =>
         <Choice key={nanoid()} value={choice} />
