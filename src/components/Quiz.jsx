@@ -4,17 +4,28 @@ import { nanoid } from "nanoid"
 import { decode } from 'html-entities';
 
 export default function Quiz(props) {
+    const [allAnswers, setAllAnswers] = React.useState([])
+
     function shuffleArray(array) {
         return array.sort(() => Math.random() - 0.5)
     }
 
-    let incorrect_answers = props.data.incorrect_answers
-    let correct_answer = props.data.correct_answer
-    incorrect_answers.push(correct_answer)
-    const choices = shuffleArray(incorrect_answers)
-    console.log(correct_answer)
+    function getChoices() {
+        let incorrect_answers = props.data.incorrect_answers
+        let correct_answer = props.data.correct_answer
+        console.log(correct_answer)
+        incorrect_answers.push(correct_answer)
+        shuffleArray(incorrect_answers)
+        return incorrect_answers
+    }
 
-    const choiceElements = choices.map(choice =>
+    function isChosen() {
+
+    }
+
+    const all_answers = getChoices()
+
+    const choiceElements = all_answers.map(choice =>
         <Choice key={nanoid()} value={choice} />
     )
 

@@ -60,11 +60,11 @@ main {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 75px 150px;
+  align-items: center;
   height: 100vh;
 }
 
 .question-container {
-  min-width: 500px;
+  min-width: 50%;
   height: 100px;
 }
