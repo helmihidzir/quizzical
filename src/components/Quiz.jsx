@@ -4,29 +4,18 @@ import { nanoid } from "nanoid"
 import { decode } from 'html-entities';
 
 export default function Quiz(props) {
-    const [allAnswers, setAllAnswers] = React.useState([])
+    const [isSelected, setIsSelected] = React.useState(props.data.isSelected)
 
-    function shuffleArray(array) {
-        return array.sort(() => Math.random() - 0.5)
+    function checkAnswer(choice) {
+        setIsSelected(!isSelected)
+        const isSelectedCorrect = props.data.correctAnswer === choice ? true : false
+        console.log(`isSelected: ${isSelected}`)
+        
+        props.updateChoice(props.data.id, isSelected, isSelectedCorrect)
     }
 
-    function getChoices() {
-        let incorrect_answers = props.data.incorrect_answers
-        let correct_answer = props.data.correct_answer
-        console.log(correct_answer)
-        incorrect_answers.push(correct_answer)
-        shuffleArray(incorrect_answers)
-        return incorrect_answers
-    }
-
-    function isChosen() {
-
-    }
-
-    const all_answers = getChoices()
-
-    const choiceElements = all_answers.map(choice =>
-        <Choice key={nanoid()} value={choice} />
+    const choiceElements = props.data.choices.map(choice =>
+        <Choice key={nanoid()} value={choice} checkAnswer={() => checkAnswer(choice)} isSelected={isSelected} />
     )
 
     return (

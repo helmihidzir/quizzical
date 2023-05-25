@@ -1,14 +1,15 @@
-import { decode } from 'html-entities';
+import React from 'react'
+import { decode } from 'html-entities'
 
 export default function Choice(props) {
     const styles = {
-        backgroundColor: props.isChosen ? "#D6DBF5" : "white",
-        borderColor: props.isChosen ? "none" : "#4D5B9E",
-        border: props.isChosen ? "none" : ""
+        backgroundColor: props.isSelected ? "#D6DBF5" : "white",
+        borderColor: props.isSelected ? "none" : "#4D5B9E",
+        border: props.isSelected ? "none" : ""
     }
 
     return (
-        <button style={styles} className="choice">
+        <button className="choice" style={styles} onClick={() => props.checkAnswer()}>
             {decode(props.value)}
         </button>
     )

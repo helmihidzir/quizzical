@@ -27,7 +27,7 @@ main {
   margin-top: 0;
 }
 
-.start-quiz {
+.start-quiz, .check-answer {
   margin-top: 24px;
   height: 50px;
   width: 200px;
@@ -67,4 +67,13 @@ main {
 .question-container {
   min-width: 50%;
   height: 100px;
+}
+
+.correct-answer {
+  background-color: #94D7A2;
+}
+
+.incorrect-answer {
+  background-color: #F8BCBC;
+  border: none;
 }
