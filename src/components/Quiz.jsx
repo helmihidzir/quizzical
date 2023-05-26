@@ -15,7 +15,7 @@ export default function Quiz(props) {
     }
 
     const choiceElements = props.data.choices.map(choice =>
-        <Choice key={nanoid()} value={choice} checkAnswer={() => checkAnswer(choice)} isSelected={isSelected} />
+        <Choice key={nanoid()} value={choice} checkAnswer={() => checkAnswer(choice)} />
     )
 
     return (

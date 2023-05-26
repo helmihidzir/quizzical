@@ -1,15 +1,22 @@
 import React from 'react'
 import { decode } from 'html-entities'
+import {nanoid} from "nanoid";
 
 export default function Choice(props) {
+    const [isSelected, setIsSelected] = React.useState(false)
+
+    function handleClick() {
+        setIsSelected(!isSelected)
+    }
+
     const styles = {
-        backgroundColor: props.isSelected ? "#D6DBF5" : "white",
-        borderColor: props.isSelected ? "none" : "#4D5B9E",
-        border: props.isSelected ? "none" : ""
+        backgroundColor: isSelected ? "#D6DBF5" : "white",
+        borderColor: isSelected ? "none" : "#4D5B9E",
+        border: isSelected ? "none" : ""
     }
 
     return (
-        <button className="choice" style={styles} onClick={() => props.checkAnswer()}>
+        <button className="choice" style={styles} onClick={() => { handleClick() }}>
             {decode(props.value)}
         </button>
     )
